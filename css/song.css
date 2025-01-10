@@ -159,6 +159,7 @@
 }
 
 .pdf-viewer {
+    margin-top: 80px; /* ระยะเผื่อจาก header */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -172,7 +173,7 @@
 }
 
 main {
-    padding-top: 40px; /* ปรับระยะห่างจาก Navbar */
+    padding-top: 50px; /* ปรับระยะห่างจาก Navbar */
 }
 
 iframe {
@@ -222,6 +223,15 @@ iframe {
 
     .songs-list p {
         font-size: 0.9rem; /* ลดขนาดคำบรรยาย */
+    }
+    
+    .pdf-viewer {
+        margin-top: 80px; /* ระยะห่างจาก header */
+        height: calc(100vh - 80px); /* ลดความสูง */
+    }
+
+    iframe {
+        height: calc(100vh - 80px); /* ลดความสูง iframe */
     }
 }
 
