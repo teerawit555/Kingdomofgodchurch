@@ -2,16 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chords</title>
     <link rel="stylesheet" href="css/song.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="icon" href="assets/logo.jpg" type="image/่jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        #pdf-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        #pdf-controls {
+            margin-bottom: 5px;
+            margin-top: 40px; /* เพิ่มระยะห่างจากด้านบน */
+        }
+
+        #pdf-canvas {
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #860000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #6f6f6f;
+        }
+    </style>
 </head>
 <body>
-
     <header>
         <div class="container">
             <div class="logo">
@@ -36,17 +69,16 @@
     </header>
 
     <main>
-        <!-- Zoom Controls -->
-        <div id="zoom-controls" style="text-align: center; margin: 20px 0;">
-            <button id="zoom-in" style="padding: 10px 20px;">Zoom In</button>
-            <button id="zoom-out" style="padding: 10px 20px;">Zoom Out</button>
-            <button id="reset-zoom" style="padding: 10px 20px;">Reset</button>
+        <div id="pdf-container">
+            <div id="pdf-controls">
+                <button id="zoom-in">Zoom In</button>
+                <button id="zoom-out">Zoom Out</button>
+                <button id="reset-zoom">Reset</button>
+            </div>
+            <canvas id="pdf-canvas"></canvas>
         </div>
-
-        <!-- PDF Viewer -->
-        <iframe id="pdfViewer" src="" style="width: 100%; height: 600px; border: none; transform-origin: center;"></iframe>
     </main>
-    
+
     <footer>
         <p>&copy; 2024 Kingdom of God Church Chanthaburi. All Rights Reserved.</p>
         <div class="social-links">
@@ -55,53 +87,68 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
     <script>
-        // รับค่า URL ของ PDF และชื่อเพลงจาก Query String
         const urlParams = new URLSearchParams(window.location.search);
-        const pdf = urlParams.get('pdf');
-        const songTitle = urlParams.get('title'); // รับค่าชื่อเพลง
+        const pdfUrl = urlParams.get('pdf'); // URL ของไฟล์ PDF
+        const songTitle = urlParams.get('title'); // ชื่อเพลงจาก URL Parameter
 
-        // ตั้งค่า src ของ iframe ให้แสดง PDF
-        if (pdf) {
-            document.getElementById('pdfViewer').src = pdf;
-        } else {
-            document.body.innerHTML = '<p style="text-align:center;">No PDF found!</p>';
-        }
+        const canvas = document.getElementById('pdf-canvas');
+        const ctx = canvas.getContext('2d');
 
-        // ตั้งค่า title ของหน้า HTML ให้เป็นชื่อเพลง
+        let pdfDoc = null;
+        let pageNum = 1;
+        let scale = 1; // ระดับการซูมเริ่มต้น
+        const zoomStep = 0.1; // ขนาดการซูมเพิ่ม/ลด
+
+        // ตั้งค่า Title ของหน้า
         if (songTitle) {
-            document.title = songTitle;
+            document.title = songTitle; // ตั้งค่า Title ของหน้า
+            const titleElement = document.createElement('h1'); // สร้าง Element สำหรับชื่อเพลง
+            titleElement.innerText = songTitle;
+            titleElement.style.textAlign = 'center';
+            titleElement.style.marginTop = '20px';
         }
 
-        // Zoom Controls
-        document.addEventListener("DOMContentLoaded", () => {
-            const iframe = document.getElementById("pdfViewer");
-            const zoomInBtn = document.getElementById("zoom-in");
-            const zoomOutBtn = document.getElementById("zoom-out");
-            const resetZoomBtn = document.getElementById("reset-zoom");
+        // โหลด PDF
+        pdfjsLib.getDocument(pdfUrl).promise.then((pdf) => {
+            pdfDoc = pdf;
+            renderPage(pageNum);
+        });
 
-            let scale = 1; // ค่าเริ่มต้นสำหรับการซูม
+        // แสดงหน้า PDF
+        function renderPage(num) {
+            pdfDoc.getPage(num).then((page) => {
+                const viewport = page.getViewport({ scale });
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
 
-            // ฟังก์ชันซูมเข้า
-            zoomInBtn.addEventListener("click", () => {
-                scale += 0.1; // เพิ่มระดับการซูม
-                iframe.style.transform = `scale(${scale})`;
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport,
+                };
+                page.render(renderContext);
             });
+        }
 
-            // ฟังก์ชันซูมออก
-            zoomOutBtn.addEventListener("click", () => {
-                if (scale > 0.5) { // จำกัดไม่ให้ซูมเล็กเกินไป
-                    scale -= 0.1;
-                    iframe.style.transform = `scale(${scale})`;
-                }
-            });
+        // ฟังก์ชันควบคุมการซูม
+        document.getElementById('zoom-in').addEventListener('click', () => {
+            scale += zoomStep;
+            renderPage(pageNum);
+        });
 
-            // ฟังก์ชันรีเซ็ตการซูม
-            resetZoomBtn.addEventListener("click", () => {
-                scale = 1; // รีเซ็ตระดับการซูมกลับเป็นปกติ
-                iframe.style.transform = `scale(${scale})`;
-            });
+        document.getElementById('zoom-out').addEventListener('click', () => {
+            if (scale > 0.2) {
+                scale -= zoomStep;
+                renderPage(pageNum);
+            }
+        });
+
+        document.getElementById('reset-zoom').addEventListener('click', () => {
+            scale = 1;
+            renderPage(pageNum);
         });
     </script>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -158,6 +158,7 @@
     transform: scale(1.05);
 }
 
+/* View ChoRd PDF*/
 .pdf-viewer {
     margin-top: 80px; /* ระยะเผื่อจาก header */
     display: flex;
@@ -177,37 +178,64 @@ main {
 }
 
 iframe {
-    width: 100%;
-    max-width: 800px; /* กำหนดขนาดสูงสุด */
-    height: calc(100vh - 150px); /* ลดพื้นที่สำหรับ header และ footer */
-    margin: 0 auto; /* จัด iframe ให้อยู่ตรงกลาง */
-    display: block; /* ให้ iframe เป็น block-level element */
-    border: none; /* ไม่มีเส้นขอบ */
-    touch-action: pan-x pan-y; /* อนุญาตการเลื่อนแบบสัมผัส */
-    overflow: auto; /* อนุญาตการเลื่อนภายใน iframe */
-    -webkit-overflow-scrolling: touch; /* รองรับการเลื่อนบน iOS */
+    width: 90%; /* ปรับขนาด iframe ให้พอดีกับหน้าจอ */
+    max-width: 800px; /* จำกัดความกว้างสูงสุด */
+    height: calc(100vh - 120px); /* คำนวณความสูง */
+    border: none;
+    display: block;
+    margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
 }
 
-.pdf-viewer {
-    margin-top: 120px; /* เพิ่มระยะห่างจากด้านบน */
-    padding: 10px;
-    background-color: #f9f9f9;
-    overflow-y: auto;
-    max-height: calc(100vh - 120px); /* คำนวณความสูงให้อยู่ในหน้าจอ */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
-    align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง (ในกรณีมีเนื้อหาเพิ่ม) */
-    position: relative;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้ดูชัดเจน */
-}
 .pdf-viewer canvas {
-    width: 100%; /* ให้ canvas ใช้พื้นที่เต็ม */
-    max-width: 100%; /* ไม่ให้ล้นขอบ */
-    border: 1px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    object-fit: contain; /* ทำให้ภาพปรับตามพื้นที่ */
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain; /* ปรับให้ Canvas ใช้พื้นที่ได้ดี */
+}
+
+/* สำหรับหน้าจอขนาดใหญ่ (Desktop) */
+#pdfViewer {
+    width: 100%;
+    height: calc(100vh - 100px); /* ลดความสูง header/footer */
+    border: none;
+    display: block;
+}
+
+/* ปุ่มซูม */
+#responsive-controls {
+    display: none; /* ซ่อนปุ่มโดยค่าเริ่มต้น */
+    text-align: center;
+    margin: 20px 0; /* เพิ่มระยะห่าง */
+}
+
+#responsive-controls button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    font-size: 0.9rem;
+    background-color: #860000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#responsive-controls button:hover {
+    background-color: #6f6f6f;
+}
+
+/* แสดงปุ่มเมื่ออยู่ในหน้าจอ Responsive */
+@media (max-width: 1024px) {
+    #responsive-controls {
+        display: block; /* แสดงปุ่ม */
+    }
+}
+
+@media (max-width: 768px) {
+    #responsive-controls button {
+        font-size: 0.8rem; /* ลดขนาดตัวอักษร */
+        padding: 8px 12px;
+    }
 }
 
 /* Responsive Adjustments */
@@ -230,7 +258,7 @@ iframe {
     }
 
     .pdf-viewer {
-        margin-top: 200px; /* เพิ่มระยะห่างใน iPad */
+        margin-top: 60px;
         max-width: 100%; /* ให้กว้างเต็มพื้นที่หน้าจอ */
         justify-content: center; /* จัดกึ่งกลางแนวนอน */
         align-items: flex-start; /* จัดให้อยู่ด้านบน */
@@ -239,12 +267,8 @@ iframe {
     iframe {
         width: 95%; /* ลดความกว้าง iframe สำหรับหน้าจอเล็ก */
         max-width: 700px; /* จำกัดความกว้างสูงสุด */
-        height: calc(100vh - 160px); /* เพิ่มพื้นที่ให้พอดีใน iPad */
-        margin: 0 auto; /* จัด iframe ให้อยู่กึ่งกลาง */
-        display: block; /* ทำให้ iframe เป็นบล็อก */
-        touch-action: pan-x pan-y; /* อนุญาตการเลื่อนแบบสัมผัส */
-        overflow: auto; /* อนุญาตการเลื่อนภายใน iframe */
-        -webkit-overflow-scrolling: touch; /* รองรับการเลื่อนบน iOS */
+        height: calc(100vh - 100px); /* คำนวณพื้นที่แสดงผล */
+        
     }
 }
 
@@ -271,14 +295,11 @@ iframe {
     }
 
     iframe {
-        width: 100%; /* ให้ iframe กว้างเต็มหน้าจอ */
-        max-width: 600px; /* จำกัดความกว้างสูงสุด */
-        height: calc(100vh - 100px);
-        margin: 0 auto; /* จัดให้อยู่กึ่งกลางหน้าจอ */
-        display: block; /* เพื่อจัด iframe ในแนวกลาง */
-        touch-action: pan-x pan-y; /* อนุญาตการเลื่อนแบบสัมผัส */
-        overflow: auto; /* อนุญาตการเลื่อนภายใน iframe */
-        -webkit-overflow-scrolling: touch; /* รองรับการเลื่อนบน iOS */
+        width: 100%; /* เต็มหน้าจอในแนวนอน */
+        max-width: 600px;
+        height: calc(100vh - 120px); /* ลดความสูง */
+        margin: 0 auto; /* จัดกึ่งกลาง */
+        display: block;
     }
 
     .pdf-viewer canvas {
@@ -323,8 +344,6 @@ iframe {
 
     iframe {
         height: calc(100vh - 70px);
-        margin: 0 auto; /* จัดให้อยู่กึ่งกลางหน้าจอ */
-        display: block; /* เพื่อจัด iframe ในแนวกลาง */
     }
 
     .pdf-viewer canvas {
