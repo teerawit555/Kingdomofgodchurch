@@ -183,6 +183,9 @@ iframe {
     margin: 0 auto; /* จัด iframe ให้อยู่ตรงกลาง */
     display: block; /* ให้ iframe เป็น block-level element */
     border: none; /* ไม่มีเส้นขอบ */
+    touch-action: pan-x pan-y; /* อนุญาตการเลื่อนแบบสัมผัส */
+    overflow: auto; /* อนุญาตการเลื่อนภายใน iframe */
+    -webkit-overflow-scrolling: touch; /* รองรับการเลื่อนบน iOS */
 }
 
 .pdf-viewer {
@@ -227,7 +230,7 @@ iframe {
     }
 
     .pdf-viewer {
-        margin-top: 140px; /* เพิ่มระยะห่างใน iPad */
+        margin-top: 200px; /* เพิ่มระยะห่างใน iPad */
         max-width: 100%; /* ให้กว้างเต็มพื้นที่หน้าจอ */
         justify-content: center; /* จัดกึ่งกลางแนวนอน */
         align-items: flex-start; /* จัดให้อยู่ด้านบน */
@@ -239,6 +242,9 @@ iframe {
         height: calc(100vh - 160px); /* เพิ่มพื้นที่ให้พอดีใน iPad */
         margin: 0 auto; /* จัด iframe ให้อยู่กึ่งกลาง */
         display: block; /* ทำให้ iframe เป็นบล็อก */
+        touch-action: pan-x pan-y; /* อนุญาตการเลื่อนแบบสัมผัส */
+        overflow: auto; /* อนุญาตการเลื่อนภายใน iframe */
+        -webkit-overflow-scrolling: touch; /* รองรับการเลื่อนบน iOS */
     }
 }
 
@@ -267,9 +273,12 @@ iframe {
     iframe {
         width: 100%; /* ให้ iframe กว้างเต็มหน้าจอ */
         max-width: 600px; /* จำกัดความกว้างสูงสุด */
-        height: calc(100vh - 80px);
+        height: calc(100vh - 100px);
         margin: 0 auto; /* จัดให้อยู่กึ่งกลางหน้าจอ */
         display: block; /* เพื่อจัด iframe ในแนวกลาง */
+        touch-action: pan-x pan-y; /* อนุญาตการเลื่อนแบบสัมผัส */
+        overflow: auto; /* อนุญาตการเลื่อนภายใน iframe */
+        -webkit-overflow-scrolling: touch; /* รองรับการเลื่อนบน iOS */
     }
 
     .pdf-viewer canvas {

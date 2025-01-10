@@ -15,20 +15,18 @@
     <header>
         <div class="container">
             <div class="logo">
-                <a href = 'index.html'>
+                <a href="index.html">
                     <img src="assets/logored.png" alt="Logo">
                 </a>
             </div>
-
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="song.html">Song</a></li>
                 <li class="dropdown-parent">
                     <a href="#event">Events</a>
-                    <!-- Enhanced Dropdown -->
                     <ul class="dropdown">
-                        <li><a href="upcomingevents.html">Upcoming Events </a></li>
+                        <li><a href="upcomingevents.html">Upcoming Events</a></li>
                         <li><a href="activity.html">Activity</a></li>
                     </ul>
                 </li>
@@ -38,15 +36,21 @@
     </header>
 
     <main>
-        <iframe id="pdfViewer" src="" width="100%" height="600px" style="border: none;"></iframe>
+        <!-- Zoom Controls -->
+        <div id="zoom-controls" style="text-align: center; margin: 20px 0;">
+            <button id="zoom-in" style="padding: 10px 20px;">Zoom In</button>
+            <button id="zoom-out" style="padding: 10px 20px;">Zoom Out</button>
+            <button id="reset-zoom" style="padding: 10px 20px;">Reset</button>
+        </div>
+
+        <!-- PDF Viewer -->
+        <iframe id="pdfViewer" src="" style="width: 100%; height: 600px; border: none; transform-origin: center;"></iframe>
     </main>
     
     <footer>
         <p>&copy; 2024 Kingdom of God Church Chanthaburi. All Rights Reserved.</p>
         <div class="social-links">
-            <!-- Facebook -->
             <a href="https://www.facebook.com/profile.php?id=100092626070610" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-            <!-- Line -->
             <a href="https://line.me/R/ti/p/@291hbplg" target="_blank" class="social-icon line"><i class="fab fa-line"></i></a>
         </div>
     </footer>
@@ -68,7 +72,36 @@
         if (songTitle) {
             document.title = songTitle;
         }
-        </script>
-    <script src="js/script.js"></script>
+
+        // Zoom Controls
+        document.addEventListener("DOMContentLoaded", () => {
+            const iframe = document.getElementById("pdfViewer");
+            const zoomInBtn = document.getElementById("zoom-in");
+            const zoomOutBtn = document.getElementById("zoom-out");
+            const resetZoomBtn = document.getElementById("reset-zoom");
+
+            let scale = 1; // ค่าเริ่มต้นสำหรับการซูม
+
+            // ฟังก์ชันซูมเข้า
+            zoomInBtn.addEventListener("click", () => {
+                scale += 0.1; // เพิ่มระดับการซูม
+                iframe.style.transform = `scale(${scale})`;
+            });
+
+            // ฟังก์ชันซูมออก
+            zoomOutBtn.addEventListener("click", () => {
+                if (scale > 0.5) { // จำกัดไม่ให้ซูมเล็กเกินไป
+                    scale -= 0.1;
+                    iframe.style.transform = `scale(${scale})`;
+                }
+            });
+
+            // ฟังก์ชันรีเซ็ตการซูม
+            resetZoomBtn.addEventListener("click", () => {
+                scale = 1; // รีเซ็ตระดับการซูมกลับเป็นปกติ
+                iframe.style.transform = `scale(${scale})`;
+            });
+        });
+    </script>
 </body>
 </html>

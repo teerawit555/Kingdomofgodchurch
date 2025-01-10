@@ -77,7 +77,6 @@ function loadPDF(pdfUrl) {
 }
 
 
-
 // Example usage:
 // Call loadPDF with the URL of the PDF when a button is clicked
 // Example: loadPDF('path/to/your/pdf.pdf');
