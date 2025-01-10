@@ -1,0 +1,266 @@
+/* Songs Section */
+.songs-section {
+    padding: 120px 20px 60px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+}
+
+.songs-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.songs-container h1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #333;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.songs-container h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #860000;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.songs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto; /* จัดให้อยู่กึ่งกลาง */
+    max-width: 800px; /* จำกัดความกว้างให้อยู่ตรงกลาง */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center; /* จัดให้แต่ละไอเทมอยู่ตรงกลาง */
+}
+
+.songs-list li {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* ให้ลิสต์ขยายเต็มพื้นที่ */
+    max-width: 600px; /* กำหนดขนาดสูงสุดให้ดูสมส่วน */
+}
+
+.songs-list li h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.songs-list li p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    background-color: #860000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #6f6f6f;
+    transform: scale(1.05);
+}
+
+
+/* Search Bar */
+.search-bar {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.search-bar input {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.search-bar input:focus {
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Songs List */
+
+
+/* Songs List with Grid */
+.songs-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ตั้งค่าให้รองรับ 3 การ์ดต่อแถว */
+    gap: 60px; /* เพิ่มระยะห่างระหว่างการ์ด */
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1200px; /* จำกัดความกว้าง */
+}
+
+.songs-list li {
+    background-color: #fcfcfc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.songs-list li:hover {
+    background-color: #eeeeee; /* สีเวลา hover */
+    transform: scale(1.02);
+}
+
+.songs-list h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.songs-list p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.songs-list .btn {
+    text-decoration: none;
+    background-color: #860000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.songs-list .btn:hover {
+    background-color: #6f6f6f;
+    transform: scale(1.05);
+}
+
+.pdf-viewer {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+main {
+    padding-top: 30px; /* ปรับระยะห่างจาก Navbar */
+}
+
+iframe {
+    width: 100%;
+    height: calc(100vh - 80px); /* คำนวณความสูงของ header + footer ออก */
+    border: none;
+    display: block;
+}
+
+.pdf-viewer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    max-height: 800px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.pdf-viewer canvas {
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .songs-list {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* ลดขนาดการ์ดให้เหมาะกับหน้าจอ */
+        gap: 40px; /* ลดระยะห่างระหว่างการ์ด */
+    }
+
+    .songs-list li {
+        padding: 15px;
+    }
+
+    .songs-list h2 {
+        font-size: 1.2rem; /* ลดขนาดหัวข้อ */
+    }
+
+    .songs-list p {
+        font-size: 0.9rem; /* ลดขนาดคำบรรยาย */
+    }
+}
+
+@media (max-width: 768px) {
+    .songs-list {
+        grid-template-columns: 1fr; /* แสดงการ์ดในแถวเดียว */
+        gap: 30px;
+    }
+
+    .songs-list li {
+        padding: 10px;
+    }
+
+    .songs-list h2 {
+        font-size: 1rem;
+    }
+
+    .songs-list p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .songs-section {
+        padding: 60px 10px 40px; /* ลด Padding ของส่วนนี้ */
+    }
+
+    .songs-container h1 {
+        font-size: 2rem; /* ลดขนาดหัวข้อ */
+    }
+
+    .songs-list {
+        gap: 20px; /* ลดระยะห่าง */
+    }
+
+    .songs-list li {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .songs-list h2 {
+        font-size: 0.9rem;
+    }
+
+    .songs-list p {
+        font-size: 0.7rem;
+    }
+
+    .songs-list .btn {
+        padding: 8px 15px; /* ลดขนาดปุ่ม */
+        font-size: 0.9rem;
+    }
+}

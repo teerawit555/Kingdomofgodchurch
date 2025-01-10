@@ -1,0 +1,174 @@
+/* Section Title */
+.activities-section {
+    padding: 120px 20px 60px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+}
+
+.activities-section .section-title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #333;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.activities-section h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #860000;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.activities-section .section-description {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+/* Activity Cards */
+.activities-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.activity-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.activity-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.activity-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.activity-card h3 {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    color: #333;
+}
+
+.activity-card p {
+    font-size: 1rem;
+    margin: 0 15px 15px;
+    color: #555;
+}
+
+.activity-card .btn {
+    display: inline-block;
+    background-color: #860000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.activity-card .btn:hover {
+    background-color: #6f6f6f;
+    transform: scale(1.1);
+}
+
+.event-time {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.event-time i {
+    color: #860000;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    /* ลดขนาดหัวข้อและคำอธิบาย */
+    .activities-section .section-title {
+        font-size: 2rem; /* ลดขนาด */
+    }
+
+    .activities-section .section-description {
+        font-size: 1rem; /* ลดขนาด */
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* ปรับขนาด Grid และ Card */
+    .activities-container {
+        grid-template-columns: 1fr; /* แสดงการ์ดทีละแถว */
+        gap: 15px; /* ลดช่องว่างระหว่างการ์ด */
+    }
+
+    .activity-card {
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .activity-card img {
+        height: 150px; /* ลดความสูงของรูป */
+    }
+
+    .activity-card h3 {
+        font-size: 1.2rem; /* ลดขนาดตัวอักษร */
+    }
+
+    .activity-card p {
+        font-size: 0.9rem; /* ลดขนาดตัวอักษร */
+    }
+
+    .activity-card .btn {
+        padding: 8px 15px; /* ลด Padding */
+        font-size: 0.9rem; /* ลดขนาดตัวอักษร */
+    }
+}
+
+@media (max-width: 480px) {
+    /* สำหรับหน้าจอที่เล็กกว่า 480px เช่น โทรศัพท์ขนาดเล็ก */
+    .activities-section .section-title {
+        font-size: 1.8rem;
+    }
+
+    .activities-section .section-description {
+        font-size: 0.9rem;
+    }
+
+    .activity-card img {
+        height: 120px;
+    }
+
+    .activity-card h3 {
+        font-size: 1rem;
+    }
+
+    .activity-card p {
+        font-size: 0.8rem;
+    }
+
+    .activity-card .btn {
+        padding: 7px 12px;
+        font-size: 0.8rem;
+    }
+}

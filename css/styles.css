@@ -1,0 +1,844 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* Header and Navbar */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 0.8rem 0; /* เพิ่ม padding ให้ navbar ดูโปร่ง */
+    transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease; /* เพิ่มความนุ่มนวล */
+    transform: translateY(0); /* แสดง Navbar ที่เริ่มต้น */
+    opacity: 1; /* ทำให้มองเห็น */
+    visibility: visible; /* มองเห็น */
+}
+
+/* เมื่อโฮเวอร์ Navbar */
+header:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ปรับ container ให้โลโก้และเมนูอยู่คนละฝั่ง */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem; /* เพิ่มระยะห่างด้านข้าง */
+}
+
+
+/* Logo */
+.logo {
+    margin: 0; /* ลบ margin ออกจาก logo */
+    padding: 0; /* ลบ padding ออกจาก logo */
+}
+
+.logo img {
+    height: 70px; /* กำหนดขนาดโลโก้ให้เหมาะสม */
+    max-height: 100%; /* จำกัดความสูงไม่ให้เกิน navbar */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* ขยายเล็กน้อยเมื่อ hover */
+}
+
+/* Navbar Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* เพิ่มระยะห่างระหว่างลิงก์ */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+/* Main Links */
+.nav-links a {
+    text-decoration: none;
+    color: #333; /* สีที่ทันสมัยและเป็นกลาง */
+    font-family: 'Poppins', sans-serif; /* ฟอนต์ที่นิยมในเว็บทันสมัย */
+    font-size: 1.1rem; /* ขนาดตัวอักษรที่เหมาะสม */
+    font-weight: 600; /* ตัวอักษรหนาขึ้นเล็กน้อย */
+    padding: 12px 18px; /* เพิ่ม Padding รอบลิงก์ */
+    border-radius: 5px; /* ทำมุมลิงก์ให้โค้งมน */
+    transition: all 0.3s ease; /* เพิ่มเอฟเฟกต์เวลา hover */
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    background-color: #860000; /* พื้นหลังสีแดงเมื่อ hover */
+    box-shadow: 0 4px 15px rgba(134, 0, 0, 0.2); /* เพิ่มเงาให้ลิงก์ */
+}
+
+/* Dropdown Menu */
+.nav-links .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    min-width: 200px;
+    padding: 10px 0;
+    z-index: 100;
+    animation: fadeIn 0.3s ease-in-out;
+    overflow: hidden; /* ป้องกัน overflow */
+}
+
+/* Dropdown Items */
+.nav-links .dropdown li {
+    margin: 8px 0; /* เพิ่มระยะห่างระหว่างบรรทัด */
+    padding: 0;
+}
+
+.nav-links .dropdown a {
+    padding: 12px 20px;
+    color: #555;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-links .dropdown a:hover {
+    color: #ffffff;
+    background-color: #860000;
+}
+
+/* Show Dropdown on Hover */
+.nav-links li:hover .dropdown {
+    display: flex;
+}
+
+/* Dropdown Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* ให้โลโก้กับเมนูเรียงในแนวตั้ง */
+        align-items: center;
+    }
+
+    .nav-links {
+        display: flex; /* ใช้ Flexbox */
+        flex-direction: row; /* ให้เมนูเรียงแนวนอน */
+        justify-content: center; /* จัดเมนูให้อยู่กึ่งกลาง */
+        gap: 10px; /* ระยะห่างระหว่างเมนู */
+        flex-wrap: wrap; /* ให้ลงบรรทัดใหม่ถ้าพื้นที่ไม่พอ */
+        width: 100%; /* ใช้ความกว้างเต็ม */
+    }
+
+    .nav-links li {
+        flex: none; /* เมนูไม่ยืดขยาย */
+        text-align: center; /* จัดข้อความให้อยู่กึ่งกลาง */
+    }
+
+    .nav-links a {
+        font-size: 0.9rem; /* ลดขนาดตัวอักษร */
+        padding: 8px 10px; /* ลด Padding */
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 1.5s ease-in-out; /* เพิ่ม transition ให้การเปลี่ยนพื้นหลัง */
+}
+
+.hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.7);
+}
+
+.hero-content {
+    z-index: 1;
+    padding: 20px;
+    max-width: 90%;
+}
+
+.hero-content h1 {
+    font-size: 3rem; /* ขนาดฟอนต์ */
+    color: #ffffff; /* สีของตัวอักษร */
+    font-weight: bold; /* ตัวหนา */
+    text-align: center; /* จัดให้อยู่ตรงกลาง */
+    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+    text-transform: uppercase; /* ตัวอักษรพิมพ์ใหญ่ */
+    position: relative; /* สำหรับเส้นขีด */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* เพิ่มเงาสีดำโปร่งใส */
+}
+
+.hero-content h1::after {
+    content: "";
+    display: block;
+    width: 80px; /* ความกว้างของเส้น */
+    height: 4px; /* ความหนาของเส้น */
+    background-color: #860000; /* สีแดงเข้ม */
+    margin: 10px auto 0; /* ระยะห่างจากข้อความ */
+    border-radius: 2px; /* มุมโค้งมน */
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* เพิ่มเงาสีดำโปร่งใส */
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ff4e4e;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #6f6f6f;
+    transform: scale(1.1);
+}
+
+/* Welcome Section */
+.welcome {
+    padding: 60px 20px;
+    background-color: #ffffff; /* พื้นหลังสีขาว */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.welcome-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.welcome-container h2 {
+    font-size: 3rem; /* ขยายขนาดหัวข้อ */
+    color: #333; /* สีหัวข้อแบบเข้ม */
+    margin-bottom: 30px; /* ระยะห่างด้านล่าง */
+    font-weight: bold; /* ข้อความหนา */
+    text-transform: uppercase; /* ตัวพิมพ์ใหญ่ทั้งหมด */
+    letter-spacing: 2px; /* ระยะห่างตัวอักษร */
+    position: relative;
+    display: inline-block;
+}
+
+.welcome-container h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #860000;
+    border-radius: 5px;
+}
+
+.welcome-container p {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.welcome-container img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.welcome-container img:hover {
+    transform: scale(1.05);
+}
+
+.event-container {
+    display: flex; /* จัดเรียงแบบแนวนอน */
+    gap: 30px; /* ระยะห่างระหว่างการ์ด */
+    justify-content: flex-start;
+    flex-wrap: nowrap; /* ป้องกันการ์ดเลื่อนไปบรรทัดใหม่ */
+    overflow-x: auto; /* เพิ่มการเลื่อนแนวนอน */
+    padding: 20px 0; /* Padding ด้านบนและล่าง */
+    scroll-snap-type: x mandatory; /* Scroll Snap */
+}
+
+.event {
+    background: linear-gradient(135deg, #ffffff, #f3f3f3); /* พื้นหลังแบบ Gradient */
+    border-radius: 15px; /* ขอบโค้งมน */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* เงาที่ดูมีมิติ */
+    overflow: hidden;
+    flex: 0 0 auto; /* กำหนดขนาดคงที่ */
+    width: 300px; /* ความกว้างการ์ด */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 30px; /* เพิ่ม Padding ด้านในเพื่อกันไม่ให้ข้อความทับ */
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* เพิ่มแอนิเมชัน */
+    scroll-snap-align: center; /* จัดศูนย์กลางเมื่อ Scroll */
+}
+
+.event h3 {
+    font-size: 1.8rem;
+    color: #860000; /* สีแดงเข้ม */
+    text-align: center;
+    position: absolute;
+    top: -20px; /* ย้ายหัวข้อให้อยู่ด้านบนของการ์ด */
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เงาเบา ๆ */
+    z-index: 2;
+    text-transform: uppercase; /* ตัวพิมพ์ใหญ่ */
+    font-weight: bold;
+}
+
+.event p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #555; /* สีข้อความกลาง ๆ */
+    text-align: center;
+}
+
+.event img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* แอนิเมชันการขยายภาพ */
+}
+
+.event img:hover {
+    transform: scale(1.05); /* ขยายเล็กน้อยเมื่อ Hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .event {
+        width: 250px; /* ลดขนาดการ์ดในหน้าจอเล็ก */
+    }
+}
+
+@media (max-width: 768px) {
+    .event-container {
+        flex-wrap: wrap; /* การ์ดเลื่อนลงบรรทัดใหม่ในหน้าจอเล็ก */
+        justify-content: center; /* จัดให้อยู่กลาง */
+    }
+
+    .event {
+        width: 100%; /* เต็มความกว้างหน้าจอ */
+        max-width: none;
+    }
+}
+
+
+/* Featured Events Section */
+.featured-events {
+    padding: 60px 20px; /* เพิ่ม Padding ให้สมดุล */
+    background-color: #ffffff; /* พื้นหลังสีขาว */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเบา ๆ */
+    border-radius: 10px; /* ขอบโค้งมน */
+}
+
+.featured-events-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.featured-events h2 {
+    font-size: 3rem; /* ขยายขนาดหัวข้อ */
+    color: #333; /* สีหัวข้อแบบเข้ม */
+    margin-bottom: 30px; /* ระยะห่างด้านล่าง */
+    font-weight: bold; /* ข้อความหนา */
+    text-transform: uppercase; /* ตัวพิมพ์ใหญ่ทั้งหมด */
+    letter-spacing: 2px; /* ระยะห่างตัวอักษร */
+    position: relative;
+    display: inline-block; /* เพื่อเพิ่มเส้นขีดล่าง */
+}
+
+.featured-events h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #860000; /* เส้นสีแดง */
+    border-radius: 5px;
+}
+
+.event-container {
+    display: flex; /* จัดเรียงแบบแนวนอน */
+    gap: 30px; /* ระยะห่างระหว่างการ์ด */
+    justify-content: flex-start;
+    flex-wrap: nowrap; /* ป้องกันการ์ดเลื่อนไปบรรทัดใหม่ */
+    overflow-x: auto; /* เพิ่มการเลื่อนแนวนอน */
+    padding: 0px 0; /* Padding ด้านบนและล่าง */
+    scroll-snap-type: x mandatory; /* Scroll Snap */
+}
+
+.event {
+    background: linear-gradient(135deg, #ffffff, #f3f3f3); /* พื้นหลังแบบ Gradient */
+    border-radius: 15px; /* ขอบโค้งมน */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* เงาที่ดูมีมิติ */
+    overflow: hidden;
+    flex: 0 0 auto; /* กำหนดขนาดคงที่ */
+    width: 300px; /* ความกว้างการ์ด */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    position: relative;
+    padding-top: 30px; /* เพิ่มพื้นที่ด้านบน */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* เพิ่มแอนิเมชัน */
+    scroll-snap-align: center; /* จัดศูนย์กลางเมื่อ Scroll */
+}
+
+.event:hover {
+    transform: translateY(-10px); /* ยกการ์ดขึ้นเมื่อ Hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* เพิ่มเงาเมื่อ Hover */
+}
+
+.event h3 {
+    font-size: 1.5rem; /* ลดขนาดหัวข้อเล็กน้อย */
+    color: #860000; /* สีแดงเข้ม */
+    text-align: center;
+    position: relative; /* เปลี่ยนตำแหน่ง */
+    margin-bottom: 10px; /* เพิ่มระยะห่างระหว่างหัวข้อและเนื้อหา */
+    background-color: transparent; /* ลบพื้นหลัง */
+    text-transform: uppercase; /* ตัวพิมพ์ใหญ่ */
+    font-weight: bold;
+}
+
+.event p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #555; /* สีข้อความกลาง ๆ */
+    text-align: center;
+    min-height: 60px; /* ความสูงขั้นต่ำ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event img {
+    border-radius: 10px;
+    width: 100%; /* ความกว้างเต็ม */
+    height: 200px; /* ความสูงคงที่ */
+    margin-bottom: 15px;
+    object-fit: cover; /* ครอบภาพให้พอดี */
+    transition: transform 0.3s ease; /* แอนิเมชันการขยายภาพ */
+}
+
+.event img:hover {
+    transform: scale(1.05); /* ขยายเล็กน้อยเมื่อ Hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .event {
+        width: 250px; /* ลดขนาดการ์ดในหน้าจอเล็ก */
+    }
+}
+
+@media (max-width: 768px) {
+    .event-container {
+        flex-wrap: wrap; /* การ์ดเลื่อนลงบรรทัดใหม่ในหน้าจอเล็ก */
+        justify-content: center; /* จัดให้อยู่กลาง */
+    }
+
+    .event {
+        width: 100%; /* เต็มความกว้างหน้าจอ */
+        max-width: none;
+    }
+}
+
+.testimonials {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.testimonials h2 {
+    font-size: 3rem; /* ขยายขนาดหัวข้อ */
+    color: #333; /* สีหัวข้อแบบเข้ม */
+    margin-bottom: 30px; /* ระยะห่างด้านล่าง */
+    font-weight: bold; /* ข้อความหนา */
+    text-transform: uppercase; /* ตัวพิมพ์ใหญ่ทั้งหมด */
+    letter-spacing: 2px; /* ระยะห่างตัวอักษร */
+    position: relative;
+    display: inline-block;
+}
+
+.testimonials h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #860000;
+    border-radius: 5px;
+}
+
+.testimonials blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 30px;
+    border-left: 4px solid #ff3939;
+    padding-left: 15px;
+}
+
+.testimonials cite {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+}
+
+
+/* Video Section */
+.video-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Container for video and heading */
+.vdocontainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Video Container */
+.video-container {
+    margin-top: 40px; /* เพิ่มระยะห่างระหว่างหัวข้อและวิดีโอ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.video-section h2 {
+    font-size: 3rem; /* ขนาดตัวอักษรใหญ่ */
+    color: #333; /* สีหัวข้อ */
+    margin-bottom: 30px; /* ระยะห่างด้านล่าง */
+    font-weight: bold; /* ตัวหนา */
+    text-transform: uppercase; /* ตัวพิมพ์ใหญ่ทั้งหมด */
+    letter-spacing: 2px; /* ระยะห่างระหว่างตัวอักษร */
+    position: relative;
+    display: inline-block;
+}
+
+/* Add underline to heading */
+.video-section h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #860000;
+    border-radius: 5px;
+}
+
+/* Video or iframe styling */
+.video-container iframe,
+.video-container video {
+    max-width: 500px; /* จำกัดขนาดวิดีโอ */
+    width: 90%; /* รองรับหน้าจอเล็ก */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* เพิ่มเงาให้ดูน่าสนใจ */
+    transition: transform 0.3s ease; /* เพิ่มเอฟเฟกต์เมื่อ hover */
+}
+
+.video-container video:hover {
+    transform: scale(1.05); /* ขยายวิดีโอเล็กน้อยเมื่อ hover */
+}
+
+
+/* Call-to-Action Section */
+.call-to-action {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #ffe9e9; /* สีพื้นหลัง */
+    color: rgb(50, 50, 50);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเบา ๆ */
+}
+
+.call-to-action h2 {
+    font-size: 3rem; /* ขยายขนาดหัวข้อ */
+    color: #333; /* สีหัวข้อแบบเข้ม */
+    margin-bottom: 30px; /* ระยะห่างด้านล่าง */
+    font-weight: bold; /* ข้อความหนา */
+    text-transform: uppercase; /* ตัวพิมพ์ใหญ่ทั้งหมด */
+    letter-spacing: 2px; /* ระยะห่างตัวอักษร */
+    position: relative;
+    display: inline-block;
+}
+
+.call-to-action h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #860000;
+    border-radius: 5px;
+}
+
+.call-to-action p {
+    font-size: 1.2rem; /* ขยายขนาดข้อความ */
+    color: #555; /* สีข้อความ */
+    max-width: 600px; /* จำกัดความกว้าง */
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    margin: 0; /* ลบ margin ด้านล่าง */
+}
+
+.call-to-action .btn {
+    background-color: #860000;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.call-to-action .btn:hover {
+    background-color: #ff3939; /* สีแดงสดเมื่อ hover */
+    transform: scale(1.1); /* ขยายขนาดเล็กน้อย */
+}
+/* Responsive Adjustments for Call-to-Action Section */
+@media (max-width: 768px) {
+    .call-to-action {
+        padding: 40px 15px; /* ลด Padding */
+    }
+
+    .call-to-action h2 {
+        font-size: 2.5rem; /* ลดขนาดหัวข้อ */
+        letter-spacing: 1.5px; /* ลดระยะห่างตัวอักษร */
+        margin-bottom: 20px; /* ลดระยะห่างด้านล่าง */
+    }
+
+    .call-to-action p {
+        font-size: 1rem; /* ลดขนาดข้อความ */
+        max-width: 90%; /* ลดความกว้างข้อความ */
+    }
+
+    .call-to-action .btn {
+        margin-top: 10px;
+        font-size: 1rem; /* ลดขนาดปุ่ม */
+        padding: 12px 20px; /* ลด Padding ของปุ่ม */
+    }
+}
+
+@media (max-width: 480px) {
+    .call-to-action {
+        padding: 30px 10px; /* ลด Padding เพิ่มเติมสำหรับหน้าจอเล็ก */
+    }
+
+    .call-to-action h2 {
+        font-size: 2rem; /* ลดขนาดหัวข้ออีก */
+        letter-spacing: 1px; /* ลดระยะห่างตัวอักษร */
+        margin-bottom: 15px; /* ลดระยะห่างด้านล่าง */
+    }
+
+    .call-to-action p {
+        font-size: 0.9rem; /* ลดขนาดข้อความอีก */
+        max-width: 100%; /* ให้ข้อความขยายเต็มหน้าจอ */
+    }
+
+    .call-to-action .btn {
+        margin-top: 10px;
+        font-size: 0.9rem; /* ลดขนาดปุ่มเพิ่มเติม */
+        padding: 10px 15px; /* ลด Padding ของปุ่ม */
+    }
+}
+
+/* Footer Section */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    margin-top: 0;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาด้านล่าง */
+    font-size: 0.875rem;
+}
+
+footer .social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* ระยะห่างระหว่างไอคอน */
+}
+
+footer .social-links a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+footer .social-links a:hover {
+    transform: scale(1.1);
+}
+
+/* สีสำหรับ Facebook */
+footer .social-links .facebook:hover {
+    background-color: #2d4373;
+}
+
+/* สีสำหรับ Line */
+footer .social-links .line:hover {
+    background-color: #00b900; /* สีเขียวของ Line */
+}
+
+/* Responsive Adjustments */
+
+@media (max-width: 768px) {
+    .video-section {
+        padding: 40px 15px;
+    }
+
+    .video-section h2 {
+        font-size: 2rem; /* ลดขนาดหัวข้อสำหรับหน้าจอเล็ก */
+    }
+
+    .video-container iframe,
+    .video-container video {
+        max-width: 100%; /* ให้วิดีโอเต็มหน้าจอในหน้าจอเล็ก */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+    
+    .welcome {
+        flex-direction: column; /* จัดเรียง Layout เป็นแนวตั้งในหน้าจอเล็ก */
+        text-align: center; /* จัดข้อความให้อยู่กึ่งกลาง */
+    }
+
+    .welcome h2, .welcome p {
+        text-align: center; /* จัดข้อความให้อยู่กึ่งกลางในหน้าจอเล็ก */
+    }
+
+    .welcome img {
+        max-width: 100%; /* ปรับรูปภาพให้เต็มความกว้าง */
+    }
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .event {
+        width: 250px; /* ลดขนาดการ์ดในหน้าจอเล็ก */
+    }
+}
+
+@media (max-width: 768px) {
+    .event-container {
+        flex-wrap: wrap; /* การ์ดเลื่อนลงบรรทัดใหม่ในหน้าจอเล็ก */
+        justify-content: center; /* จัดให้อยู่กลาง */
+    }
+
+    .event {
+        width: 100%; /* เต็มความกว้างหน้าจอ */
+        max-width: none;
+    }
+}

@@ -1,0 +1,285 @@
+/* About Hero Section */
+.about-hero {
+    position: relative;
+    height: 60vh;
+    background: url('../assets/welcome2.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.about-hero .overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+/* About Content Section */
+.about-content {
+    padding: 80px 20px;
+    background-color: #f8f8f8;
+}
+
+.about-content .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* เส้นแบ่งระหว่างภาษา */
+.about-content .divider {
+    width: 100%;
+    height: 2px;
+    background-color: #ccc;
+    margin: 30px 0;
+}
+
+.about-content .about-text {
+    flex: 1;
+    font-family: 'Arial', sans-serif;
+}
+
+.about-content .about-text h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #333;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.about-content .about-text h2::after {
+    content: "";
+    display: block;
+    width: 113px;
+    height: 4px;
+    background-color: #860000;
+    margin: 10px 0 0;
+    border-radius: 2px;
+}
+
+.about-content .about-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about-content .about-text strong {
+    color: #860000;
+    font-weight: bold;
+}
+
+.about-content .about-text .highlight {
+    color: #333;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.about-content .about-image {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column; /* วางรูปในแนวตั้ง */
+    gap: 20px; /* เพิ่มช่องว่างระหว่างรูป */
+}
+
+.about-content .about-image img {
+    width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    margin-left: 40px;
+}
+
+.about-content .about-image img:hover {
+    transform: scale(1.05);
+}
+
+
+/* Our Values Section */
+.our-values {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.our-values h2 {
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.our-values h2::after{
+    content: "";
+    display: block;
+    width: 60px; /* ความกว้างของเส้น */
+    height: 4px; /* ความหนาของเส้น */
+    background-color: #860000; /* สีของเส้น */
+    margin: 10px auto 0; /* ระยะห่างด้านบนล่าง */
+    border-radius: 2px; /* ทำมุมเส้นโค้งมน */
+}
+.value-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+.value-card {
+    background-color: #fff;
+    margin-left: 30px;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+}
+
+.value-card i {
+    font-size: 2.5rem;
+    color: #860000;
+    margin-bottom: 10px;
+}
+
+.value-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.value-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .about-content .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-content .about-text h2 {
+        text-align: center;
+    }
+
+    .about-content .about-text p {
+        text-align: center;
+    }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    /* ลดขนาดหัวข้อและคำอธิบาย */
+    .activities-section .section-title {
+        font-size: 2rem; /* ลดขนาด */
+    }
+
+    .activities-section .section-description {
+        font-size: 1rem; /* ลดขนาด */
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* ปรับขนาด Grid และ Card */
+    .activities-container {
+        grid-template-columns: 1fr; /* แสดงการ์ดทีละแถว */
+        gap: 15px; /* ลดช่องว่างระหว่างการ์ด */
+    }
+
+    .activity-card {
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .activity-card img {
+        height: 150px; /* ลดความสูงของรูป */
+    }
+
+    .activity-card h3 {
+        font-size: 1.2rem; /* ลดขนาดตัวอักษร */
+    }
+
+    .activity-card p {
+        font-size: 0.9rem; /* ลดขนาดตัวอักษร */
+    }
+
+    .activity-card .btn {
+        padding: 8px 15px; /* ลด Padding */
+        font-size: 0.9rem; /* ลดขนาดตัวอักษร */
+    }
+    .value-cards {
+        flex-wrap: wrap; /* ให้การ์ดแสดงในหลายแถว */
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .value-card {
+        flex: 1 1 calc(100% - 40px); /* ให้การ์ดใช้พื้นที่ 100% ของหน้าจอ มี margin */
+        max-width: 90%; /* จำกัดความกว้างให้พอดีกับหน้าจอ */
+        margin: 0 auto; /* จัดให้อยู่กึ่งกลาง */
+    }
+}
+
+@media (max-width: 480px) {
+    /* สำหรับหน้าจอที่เล็กกว่า 480px เช่น โทรศัพท์ขนาดเล็ก */
+    .activities-section .section-title {
+        font-size: 1.8rem;
+    }
+
+    .activities-section .section-description {
+        font-size: 0.9rem;
+    }
+
+    .activity-card img {
+        height: 120px;
+    }
+
+    .activity-card h3 {
+        font-size: 1rem;
+    }
+
+    .activity-card p {
+        font-size: 0.8rem;
+    }
+
+    .activity-card .btn {
+        padding: 7px 12px;
+        font-size: 0.8rem;
+    }
+    .value-card {
+        padding: 15px; /* ลด Padding ให้เหมาะสม */
+        max-width: 95%; /* ปรับขนาดการ์ดให้เหมาะกับหน้าจอเล็ก */
+    }
+
+    .value-card h3 {
+        font-size: 1.2rem; /* ลดขนาดหัวข้อ */
+    }
+
+    .value-card p {
+        font-size: 0.9rem; /* ลดขนาดข้อความ */
+    }
+}

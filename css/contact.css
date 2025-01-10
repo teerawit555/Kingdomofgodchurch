@@ -1,0 +1,243 @@
+.contact-us {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.contact-us .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center; /* จัดให้อยู่ตรงกลาง */
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info h2,
+.contact-form h2 {
+    font-size: 2rem; /* ขนาดฟอนต์ */
+    color: #333; /* สีฟอนต์ */
+    font-weight: bold; /* ตัวหนา */
+    text-align: center; /* จัดให้อยู่ตรงกลาง */
+    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+    text-transform: uppercase; /* ทำตัวพิมพ์ใหญ่ */
+    position: relative; /* สำหรับเส้นขีด */
+}
+
+.contact-info h2::after,
+.contact-form h2::after {
+    content: "";
+    display: block;
+    width: 60px; /* ความกว้างของเส้น */
+    height: 4px; /* ความหนาของเส้น */
+    background-color: #860000; /* สีของเส้น */
+    margin: 10px auto 0; /* ระยะห่างด้านบนล่าง */
+    border-radius: 2px; /* ทำมุมเส้นโค้งมน */
+}
+
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    color: #333;
+}
+
+.contact-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.contact-info li i {
+    margin-right: 10px;
+    color: #860000;
+    font-size: 1.5rem;
+}
+
+.contact-info .service-hours {
+    margin-top: 20px;
+    color: #555;
+    font-size: 1rem;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    margin-top: 10px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    max-width: calc(100% - 20px); /* ป้องกันล้น */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    resize: none;
+    max-width: calc(100% - 20px); /* ป้องกันล้น */
+}
+
+.contact-form button {
+    background-color: #860000;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+    background-color: #6f6f6f;
+}
+
+@media (max-width: 768px) {
+    .contact-us .container {
+        grid-template-columns: 1fr; /* แสดงแบบคอลัมน์เมื่อหน้าจอเล็ก */
+    }
+
+    .contact-form .form-group {
+        grid-template-columns: 1fr; /* จัดช่องกรอกแบบคอลัมน์ */
+    }
+
+    .contact-form textarea {
+        grid-column: span 1;
+    }
+
+    .contact-form button {
+        grid-column: span 1;
+    }
+}
+/* Map Container */
+.map-container {
+    margin-top: 25px; /* ป้องกันการทับกับ Header */
+    width: 100%; /* ใช้เต็มความกว้างของ container */
+    height: 450px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Ensure No Overlap with Header */
+header + .map-container {
+    margin-top: 0; /* ไม่ให้เกิดช่องว่างระหว่าง header และแผนที่ */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .contact-us .container {
+        display: flex;
+        flex-direction: column; /* จัดเรียงในแนวตั้ง */
+        align-items: center; /* จัดให้อยู่ตรงกลางในแนวแกน X */
+        justify-content: center; /* จัดให้อยู่ตรงกลางในแนวแกน Y */
+        max-width: 1200px; /* จำกัดความกว้างสูงสุด */
+        margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+        text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+        padding: 20px; /* เพิ่มระยะห่างรอบๆ */
+    }
+
+    .contact-info, .contact-form {
+        width: 100%; /* ขยายเต็มความกว้างที่กำหนด */
+        max-width: 500px; /* จำกัดความกว้างสูงสุด */
+        margin: 20px 0; /* เพิ่มระยะห่างระหว่างส่วน */
+        text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    }
+
+    .map-container {
+        width: 100%;
+        max-width: 500px; /* จำกัดขนาดแผนที่ให้ไม่กว้างเกินไป */
+        height: 300px; /* ปรับความสูงของแผนที่ */
+        margin: 20px auto; /* จัดแผนที่ให้อยู่กลาง */
+        overflow: hidden; /* ตัดส่วนเกินที่อาจล้น */
+    }
+}
+
+/* Responsive Adjustments for iPhone Sizes */
+@media (max-width: 428px) {
+    .contact-us .container {
+        display: flex;
+        flex-direction: column; /* จัดเรียงในแนวตั้ง */
+        align-items: center; /* จัดให้อยู่ตรงกลางในแนวแกน X */
+        justify-content: center; /* จัดให้อยู่ตรงกลางในแนวแกน Y */
+        max-width: 1200px; /* จำกัดความกว้างสูงสุด */
+        margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+        text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+        padding: 20px; /* เพิ่มระยะห่างรอบๆ */
+    }
+
+    .contact-info, .contact-form {
+        width: 100%; /* ขยายเต็มความกว้างที่กำหนด */
+        max-width: 500px; /* จำกัดความกว้างสูงสุด */
+        margin: 20px 0; /* เพิ่มระยะห่างระหว่างส่วน */
+        text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    }
+
+    .contact-info li {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* จัดไอคอนและข้อความให้อยู่กึ่งกลาง */
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+    }
+    .contact-info li i {
+        margin-right: 10px;
+        color: #860000;
+        font-size: 1.5rem;
+    }
+
+    .contact-form button {
+        width: 100%; /* ปุ่มขยายเต็มความกว้าง */
+        font-size: 0.95rem; /* ลดขนาดฟอนต์ */
+        padding: 10px; /* ลด Padding */
+    }
+
+    .map-container {
+        width: 100%;
+        max-width: 500px; /* จำกัดขนาดแผนที่ให้ไม่กว้างเกินไป */
+        height: 300px; /* ปรับความสูงของแผนที่ */
+        margin: 20px auto; /* จัดแผนที่ให้อยู่กลาง */
+        overflow: hidden; /* ตัดส่วนเกินที่อาจล้น */
+    }
+
+    .contact-info h2, .contact-form h2 {
+        font-size: 1.5rem; /* ลดขนาดหัวข้อ */
+    }
+
+    .contact-info ul {
+        list-style: none; /* ลบ bullet ของ ul */
+        padding: 0;
+        margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+        text-align: center; /* จัดข้อความใน ul ให้อยู่กลาง */
+    }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="../assets/logo.jpg" type="image/่jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href = 'index.html'>
+                    <img src="../assets/logored.png" alt="Logo">
+                </a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="song.html">Song</a></li>
+                <li class="dropdown-parent">
+                    <a href="#event">Events</a>
+                    <!-- Enhanced Dropdown -->
+                    <ul class="dropdown">
+                        <li><a href="upcomingevents.html">Upcoming Events </a></li>
+                        <li><a href="activity.html">Activity</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Google Map -->
+    <section class="contact-us">
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3893.695832310538!2d102.11338207483479!3d12.60228698768018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3104810021f63227%3A0xccf38cd38dfd32ab!2z4LiE4Lij4Li04Liq4LiV4LiI4Lix4LiB4Lij4LiE4Li04LiH4LiU4Lit4LihIOC4reC4reC4nyDguIHguYfguK3guJQg4LiI4Lix4LiZ4LiX4Lia4Li44Lij4Li1IEtpbmdkb20gb2YgR29kIENodXJjaCBDaGFudGhhYnVyaQ!5e0!3m2!1sth!2sth!4v1735446359904!5m2!1sth!2sth" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <div class="container">
+            <!-- Left Section: Contact Info -->
+            <div class="contact-info">
+                <h2>Location</h2>
+                <p>Kingdom of God Church Chanthaburi</p>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 35/89-90 ต.จันทนิมิต อ.เมือง จ.จันทบุรี 22000</li>
+                    <li><i class="fas fa-phone-alt"></i> +66 63 669 4961</li>
+                    <li><i class="fas fa-envelope"></i> kingdomofgodchurchchanthaburi@gmail.com</li>
+                </ul>
+                <p class="service-hours">
+                    <strong>Service Hours:</strong><br>
+                    Sunday: 9:00 AM - 12:00 PM<br>
+                    Wednesday: 7:00 PM - 9:00 PM
+                </p>
+            </div>
+    
+            <!-- Right Section: Contact Form -->
+            <div class="contact-form">
+                <h2>Contact Us</h2>
+                <form action="../submit_form.php" method="post">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Kingdom of God Church Chanthaburi. All Rights Reserved.</p>
+        <div class="social-links">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/profile.php?id=100092626070610" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <!-- Line -->
+            <a href="https://line.me/R/ti/p/@291hbplg" target="_blank" class="social-icon line"><i class="fab fa-line"></i></a>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

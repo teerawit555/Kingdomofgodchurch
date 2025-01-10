@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chords</title>
+    <link rel="stylesheet" href="../css/song.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="../assets/logo.jpg" type="image/่jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href = 'index.html'>
+                    <img src="../assets/logored.png" alt="Logo">
+                </a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="song.html">Song</a></li>
+                <li class="dropdown-parent">
+                    <a href="#event">Events</a>
+                    <!-- Enhanced Dropdown -->
+                    <ul class="dropdown">
+                        <li><a href="upcomingevents.html">Upcoming Events </a></li>
+                        <li><a href="activity.html">Activity</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <iframe id="pdfViewer" src="" width="100%" height="600px" style="border: none;"></iframe>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Kingdom of God Church Chanthaburi. All Rights Reserved.</p>
+        <div class="social-links">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/profile.php?id=100092626070610" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+            <!-- Line -->
+            <a href="https://line.me/R/ti/p/@291hbplg" target="_blank" class="social-icon line"><i class="fab fa-line"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // รับค่า URL ของ PDF และชื่อเพลงจาก Query String
+        const urlParams = new URLSearchParams(window.location.search);
+        const pdf = urlParams.get('pdf');
+        const songTitle = urlParams.get('title'); // รับค่าชื่อเพลง
+
+        // ตั้งค่า src ของ iframe ให้แสดง PDF
+        if (pdf) {
+            document.getElementById('pdfViewer').src = pdf;
+        } else {
+            document.body.innerHTML = '<p style="text-align:center;">No PDF found!</p>';
+        }
+
+        // ตั้งค่า title ของหน้า HTML ให้เป็นชื่อเพลง
+        if (songTitle) {
+            document.title = songTitle;
+        }
+        </script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

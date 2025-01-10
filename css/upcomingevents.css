@@ -1,0 +1,84 @@
+/* Hero Section */
+.hero {
+    background: url('assets/youthcamp.jpg') no-repeat center center/cover;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Events Section */
+.events-section {
+    padding: 60px 20px;
+}
+
+.events-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.event-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.event-card:hover {
+    transform: scale(1.05);
+}
+
+.event-image {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.event-content {
+    padding: 20px;
+}
+
+.event-title {
+    font-size: 1.5rem;
+    color: #860000;
+    margin-bottom: 10px;
+}
+
+.event-date {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.event-description {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+    
+}
+
+.btn {
+    display: inline-block;
+    background-color: #860000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #6f6f6f;
+}

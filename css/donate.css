@@ -1,0 +1,102 @@
+/* Donate Section */
+.donate-section {
+    padding: 100px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: #333;
+    text-transform: uppercase;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #860000;
+    margin: 2px auto 0;
+    border-radius: 2px;
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.donation-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; /* เพิ่มระยะห่างระหว่างการ์ด */
+    margin-top: 30px; /* เพิ่มพื้นที่ด้านบน */
+}
+
+.donation-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: center;
+    flex: 1;
+    max-width: 320px;
+    min-width: 280px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.donation-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.donation-card i {
+    color: #860000;
+    margin-bottom: 20px;
+    transition: color 0.3s;
+}
+
+.donation-card:hover i {
+    color: #6f6f6f;
+}
+
+.donation-card h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.donation-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: left;
+    line-height: 1.6;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #860000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #6f6f6f;
+}
