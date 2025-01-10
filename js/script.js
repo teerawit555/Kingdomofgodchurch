@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!hero) return; // ถ้าไม่มี .hero ให้หยุดทำงาน
 
     const backgroundImages = [
-        "assets/welcome.png",
-        "assets/welcome2.jpg",
-        "assets/welcome3.jpg",
-        "assets/welcome4.jpg",
+        "./assets/welcome.png",
+        "./assets/welcome2.jpg",
+        "./assets/welcome3.jpg",
+        "./assets/welcome4.jpg",
     ];
 
     let currentImageIndex = 0;
