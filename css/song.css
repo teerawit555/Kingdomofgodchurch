@@ -177,26 +177,27 @@ main {
 }
 
 iframe {
-    width: 100%;
-    height: calc(100vh - 100px); /* ลดพื้นที่กินจากด้านบน */
+    width: 90%; /* ปรับขนาด iframe ให้พอดีกับหน้าจอ */
+    max-width: 800px; /* จำกัดความกว้างสูงสุด */
+    height: calc(100vh - 120px); /* คำนวณความสูง */
     border: none;
     display: block;
-    overflow: hidden; /* ป้องกันการล้นขอบ */
+    margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
 }
 
 .pdf-viewer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
+    margin-top: 80px; /* ระยะห่างด้านบน */
     padding: 10px;
     background-color: #f9f9f9;
     overflow-y: auto;
-    max-height: calc(100vh - 80px); /* ลดพื้นที่ครอบจาก Header/ส่วนบน */
+    max-height: calc(100vh - 120px); /* คำนวณความสูงให้อยู่ในหน้าจอ */
     border: 1px solid #ddd;
     border-radius: 8px;
-    transform-origin: top; /* จุดเริ่มต้นของการซูม */
+    display: flex;
+    justify-content: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง (ในกรณีมีเนื้อหาเพิ่ม) */
     position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้ดูชัดเจน */
 }
 .pdf-viewer canvas {
     width: 100%; /* ให้ canvas ใช้พื้นที่เต็ม */
@@ -224,14 +225,20 @@ iframe {
     .songs-list p {
         font-size: 0.9rem; /* ลดขนาดคำบรรยาย */
     }
-    
+
     .pdf-viewer {
-        margin-top: 80px; /* ระยะห่างจาก header */
-        height: calc(100vh - 80px); /* ลดความสูง */
+        margin-top: 60px;
+        max-width: 100%; /* ให้กว้างเต็มพื้นที่หน้าจอ */
+        justify-content: center; /* จัดกึ่งกลางแนวนอน */
+        align-items: flex-start; /* จัดให้อยู่ด้านบน */
     }
 
     iframe {
-        height: calc(100vh - 80px); /* ลดความสูง iframe */
+        width: 95%; /* ลดความกว้าง iframe สำหรับหน้าจอเล็ก */
+        max-width: 700px; /* จำกัดความกว้างสูงสุด */
+        height: calc(100vh - 100px); /* คำนวณพื้นที่แสดงผล */
+        margin: 0 auto; /* จัด iframe ให้อยู่กึ่งกลาง */
+        display: block; /* ทำให้ iframe เป็นบล็อก */
     }
 }
 
@@ -253,12 +260,16 @@ iframe {
         font-size: 0.8rem;
     }
     .pdf-viewer {
-        max-height: calc(100vh - 60px); /* ลดพื้นที่กินด้านบนเพิ่มเติม */
-        padding: 5px;
+        margin-top: 50px;
+        padding: 10px;
     }
 
     iframe {
-        height: calc(100vh - 80px); /* ลดพื้นที่กินบนมือถือ */
+        width: 100%; /* ให้ iframe กว้างเต็มหน้าจอ */
+        max-width: 600px; /* จำกัดความกว้างสูงสุด */
+        height: calc(100vh - 80px);
+        margin: 0 auto; /* จัดให้อยู่กึ่งกลางหน้าจอ */
+        display: block; /* เพื่อจัด iframe ในแนวกลาง */
     }
 
     .pdf-viewer canvas {
@@ -303,6 +314,8 @@ iframe {
 
     iframe {
         height: calc(100vh - 70px);
+        margin: 0 auto; /* จัดให้อยู่กึ่งกลางหน้าจอ */
+        display: block; /* เพื่อจัด iframe ในแนวกลาง */
     }
 
     .pdf-viewer canvas {

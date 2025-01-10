@@ -76,45 +76,6 @@ function loadPDF(pdfUrl) {
     });
 }
 
-// เพิ่ม pinch-to-zoom และ scroll gestures ให้เลื่อนหรือขยาย/ย่อ PDF
-const pdfViewer = document.querySelector('.pdf-viewer');
-
-let scale = 1; // ระดับการซูมเริ่มต้น
-let startDistance = 0;
-
-// ฟังก์ชันคำนวณระยะระหว่างนิ้ว (สำหรับ Pinch-to-Zoom)
-function getDistance(touches) {
-    const [touch1, touch2] = touches;
-    const dx = touch1.clientX - touch2.clientX;
-    const dy = touch1.clientY - touch2.clientY;
-    return Math.sqrt(dx * dx + dy * dy);
-}
-
-// รองรับ Pinch-to-Zoom บน Touch Devices
-pdfViewer.addEventListener('touchstart', (e) => {
-    if (e.touches.length === 2) { // ตรวจสอบว่ามีสองนิ้ว
-        startDistance = getDistance(e.touches);
-    }
-});
-
-pdfViewer.addEventListener('touchmove', (e) => {
-    if (e.touches.length === 2) {
-        e.preventDefault(); // ป้องกัน scroll อัตโนมัติ
-        const currentDistance = getDistance(e.touches);
-        const scaleChange = currentDistance / startDistance;
-        scale = Math.min(Math.max(scale * scaleChange, 0.5), 3); // จำกัดการซูม
-        pdfViewer.style.transform = `scale(${scale})`;
-        startDistance = currentDistance; // อัปเดตระยะใหม่
-    }
-});
-
-// รองรับ Scroll บนอุปกรณ์มือถือ
-pdfViewer.addEventListener('touchmove', (e) => {
-    if (e.touches.length === 1) { // เมื่อใช้นิ้วเดียว
-        pdfViewer.style.overflow = 'auto'; // เปิดใช้งาน scroll
-    }
-});
-
 
 
 // Example usage:
