@@ -177,16 +177,16 @@ main {
 }
 
 iframe {
-    width: 90%; /* ปรับขนาด iframe ให้พอดีกับหน้าจอ */
-    max-width: 800px; /* จำกัดความกว้างสูงสุด */
-    height: calc(100vh - 120px); /* คำนวณความสูง */
-    border: none;
-    display: block;
-    margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+    width: 100%;
+    max-width: 800px; /* กำหนดขนาดสูงสุด */
+    height: calc(100vh - 150px); /* ลดพื้นที่สำหรับ header และ footer */
+    margin: 0 auto; /* จัด iframe ให้อยู่ตรงกลาง */
+    display: block; /* ให้ iframe เป็น block-level element */
+    border: none; /* ไม่มีเส้นขอบ */
 }
 
 .pdf-viewer {
-    margin-top: 80px; /* ระยะห่างด้านบน */
+    margin-top: 120px; /* เพิ่มระยะห่างจากด้านบน */
     padding: 10px;
     background-color: #f9f9f9;
     overflow-y: auto;
@@ -227,7 +227,7 @@ iframe {
     }
 
     .pdf-viewer {
-        margin-top: 60px;
+        margin-top: 140px; /* เพิ่มระยะห่างใน iPad */
         max-width: 100%; /* ให้กว้างเต็มพื้นที่หน้าจอ */
         justify-content: center; /* จัดกึ่งกลางแนวนอน */
         align-items: flex-start; /* จัดให้อยู่ด้านบน */
@@ -236,7 +236,7 @@ iframe {
     iframe {
         width: 95%; /* ลดความกว้าง iframe สำหรับหน้าจอเล็ก */
         max-width: 700px; /* จำกัดความกว้างสูงสุด */
-        height: calc(100vh - 100px); /* คำนวณพื้นที่แสดงผล */
+        height: calc(100vh - 160px); /* เพิ่มพื้นที่ให้พอดีใน iPad */
         margin: 0 auto; /* จัด iframe ให้อยู่กึ่งกลาง */
         display: block; /* ทำให้ iframe เป็นบล็อก */
     }
