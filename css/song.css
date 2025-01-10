@@ -159,20 +159,25 @@
 }
 
 .pdf-viewer {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
     background-color: #f9f9f9;
+    overflow-y: auto;
+    max-height: 80vh; /* จำกัดความสูงไม่ให้เกินหน้าจอ */
+    border: 1px solid #ddd;
+    border-radius: 8px;
 }
 
 main {
-    padding-top: 30px; /* ปรับระยะห่างจาก Navbar */
+    padding-top: 40px; /* ปรับระยะห่างจาก Navbar */
 }
 
 iframe {
     width: 100%;
-    height: calc(100vh - 80px); /* คำนวณความสูงของ header + footer ออก */
+    height: 80vh; /* ให้ความสูงสัมพันธ์กับ viewport */
     border: none;
     display: block;
 }
@@ -190,8 +195,11 @@ iframe {
     border-radius: 8px;
 }
 .pdf-viewer canvas {
+    width: 100%; /* ให้ canvas ใช้พื้นที่เต็ม */
+    max-width: 100%; /* ไม่ให้ล้นขอบ */
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: contain; /* ทำให้ภาพปรับตามพื้นที่ */
 }
 
 /* Responsive Adjustments */
@@ -231,6 +239,18 @@ iframe {
     .songs-list p {
         font-size: 0.8rem;
     }
+    .pdf-viewer {
+        max-height: 60vh; /* ลดความสูงเมื่อหน้าจอเล็ก */
+        padding: 5px;
+    }
+
+    iframe {
+        height: 60vh; /* ลดความสูง iframe */
+    }
+
+    .pdf-viewer canvas {
+        height: auto;
+    }
 }
 
 @media (max-width: 480px) {
@@ -262,5 +282,17 @@ iframe {
     .songs-list .btn {
         padding: 8px 15px; /* ลดขนาดปุ่ม */
         font-size: 0.9rem;
+    }
+    .pdf-viewer {
+        max-height: 50vh; /* ลดความสูงเพิ่มเติมสำหรับหน้าจอเล็กมาก */
+        padding: 5px;
+    }
+
+    iframe {
+        height: 50vh;
+    }
+
+    .pdf-viewer canvas {
+        height: auto;
     }
 }

@@ -76,6 +76,25 @@ function loadPDF(pdfUrl) {
     });
 }
 
+// เพิ่ม pinch-to-zoom และ scroll gestures ให้เลื่อนหรือขยาย/ย่อ PDF
+const pdfViewer = document.querySelector('.pdf-viewer');
+
+let scale = 1; // ระดับการซูมเริ่มต้น
+pdfViewer.addEventListener('wheel', (e) => {
+    if (e.ctrlKey) { // ใช้ ctrl + scroll เพื่อซูม
+        e.preventDefault();
+        scale += e.deltaY * -0.01;
+        scale = Math.min(Math.max(0.5, scale), 3); // จำกัดระดับการซูม
+        pdfViewer.style.transform = `scale(${scale})`;
+    }
+});
+
+pdfViewer.addEventListener('touchmove', (e) => {
+    // ปรับ gesture สำหรับ scroll บนมือถือ
+    pdfViewer.style.overflow = 'auto';
+});
+
+
 // Example usage:
 // Call loadPDF with the URL of the PDF when a button is clicked
 // Example: loadPDF('path/to/your/pdf.pdf');

@@ -145,29 +145,56 @@ header:hover {
 }
 
 /* Responsive Navbar */
+/* Responsive Navbar */
 @media (max-width: 768px) {
+    body {
+        margin-top: 200px; /* เพิ่มพื้นที่ด้านบนให้กับเว็บไซต์ */
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
     .container {
-        flex-direction: column; /* ให้โลโก้กับเมนูเรียงในแนวตั้ง */
+        display: flex;
+        flex-direction: column; /* โลโก้ยังคงอยู่ด้านบน */
         align-items: center;
+        padding: 0 10px;
     }
 
     .nav-links {
         display: flex; /* ใช้ Flexbox */
-        flex-direction: row; /* ให้เมนูเรียงแนวนอน */
+        flex-direction: row; /* ให้เมนูเรียงในแนวนอน */
         justify-content: center; /* จัดเมนูให้อยู่กึ่งกลาง */
+        align-items: center; /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
         gap: 10px; /* ระยะห่างระหว่างเมนู */
-        flex-wrap: wrap; /* ให้ลงบรรทัดใหม่ถ้าพื้นที่ไม่พอ */
-        width: 100%; /* ใช้ความกว้างเต็ม */
+        margin-top: 10px; /* เพิ่มระยะห่างระหว่างโลโก้และเมนู */
+        list-style: none; /* ลบ bullet ของลิสต์ */
+        padding: 0;
+        width: auto; /* ขนาดตามเนื้อหา */
     }
 
     .nav-links li {
-        flex: none; /* เมนูไม่ยืดขยาย */
-        text-align: center; /* จัดข้อความให้อยู่กึ่งกลาง */
+        flex: none; /* ไม่ให้ยืด */
+        text-align: center; /* จัดให้อยู่ตรงกลาง */
     }
 
     .nav-links a {
         font-size: 0.9rem; /* ลดขนาดตัวอักษร */
-        padding: 8px 10px; /* ลด Padding */
+        padding: 8px 12px; /* ปรับ Padding */
+        text-decoration: none; /* ลบเส้นใต้ */
+        color: #333;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        background-color: #860000;
+        color: #ffffff;
     }
 }
 
