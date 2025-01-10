@@ -585,6 +585,59 @@ header:hover {
     color: #333;
 }
 
+/* Responsive Adjustments */
+
+/* สำหรับหน้าจอแท็บเล็ต */
+@media (max-width: 1024px) {
+    .testimonials h2 {
+        font-size: 2rem; /* ลดขนาดหัวข้อ */
+    }
+
+    .testimonials blockquote {
+        font-size: 1.2rem; /* ลดขนาดข้อความ */
+        margin-bottom: 20px; /* ลดระยะห่าง */
+    }
+
+    .testimonials cite {
+        font-size: 1rem; /* ลดขนาดชื่อ */
+    }
+}
+
+/* สำหรับหน้าจอมือถือ */
+@media (max-width: 768px) {
+    .testimonials {
+        padding: 40px 15px; /* ลด Padding */
+    }
+
+    .testimonials h2 {
+        font-size: 1.8rem; /* ลดขนาดหัวข้อ */
+    }
+
+    .testimonials blockquote {
+        font-size: 1rem; /* ลดขนาดข้อความ */
+        padding-left: 10px; /* ลดระยะ Padding */
+        margin-bottom: 15px; /* ลดระยะห่าง */
+    }
+
+    .testimonials cite {
+        font-size: 0.9rem; /* ลดขนาดชื่อ */
+    }
+}
+
+/* สำหรับหน้าจอมือถือขนาดเล็ก */
+@media (max-width: 480px) {
+    .testimonials h2 {
+        font-size: 1.5rem; /* ลดขนาดหัวข้อ */
+    }
+
+    .testimonials blockquote {
+        font-size: 0.9rem; /* ลดขนาดข้อความ */
+    }
+
+    .testimonials cite {
+        font-size: 0.8rem; /* ลดขนาดชื่อ */
+    }
+}
 
 /* Video Section */
 .video-section {
