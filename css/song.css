@@ -224,18 +224,43 @@ iframe {
     background-color: #6f6f6f;
 }
 
-/* แสดงปุ่มเมื่ออยู่ในหน้าจอ Responsive */
-@media (max-width: 1024px) {
-    #responsive-controls {
-        display: block; /* แสดงปุ่ม */
-    }
+/* css for viewchord.html */
+#pdf-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    max-width: 100%; /* จำกัดความกว้างให้พอดีกับหน้าจอ */
+    overflow-x: hidden; /* ป้องกันการล้นด้านข้าง */
 }
 
-@media (max-width: 768px) {
-    #responsive-controls button {
-        font-size: 0.8rem; /* ลดขนาดตัวอักษร */
-        padding: 8px 12px;
-    }
+#pdf-controls {
+    margin-bottom: 5px;
+    margin-top: 40px; /* เพิ่มระยะห่างจากด้านบน */
+    text-align: center; /* จัดปุ่มให้อยู่ตรงกลาง */
+}
+
+#pdf-canvas {
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%; /* จำกัดความกว้างให้พอดีกับหน้าจอ */
+    height: auto; /* ปรับความสูงให้เป็นอัตโนมัติ */
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #860000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #6f6f6f;
 }
 
 /* Responsive Adjustments */
@@ -268,7 +293,20 @@ iframe {
         width: 95%; /* ลดความกว้าง iframe สำหรับหน้าจอเล็ก */
         max-width: 700px; /* จำกัดความกว้างสูงสุด */
         height: calc(100vh - 100px); /* คำนวณพื้นที่แสดงผล */
-        
+    }
+
+    #pdf-container {
+        padding: 15px; /* ลด Padding */
+    }
+
+    #pdf-canvas {
+        max-width: 95%; /* ลดขนาดเพื่อให้พอดีกับหน้าจอแท็บเล็ต */
+        margin: 0 auto; /* จัดกึ่งกลาง */
+    }
+
+    button {
+        font-size: 0.9rem; /* ลดขนาดฟอนต์ของปุ่ม */
+        padding: 8px 15px; /* ลด Padding ของปุ่ม */
     }
 }
 
@@ -304,6 +342,20 @@ iframe {
 
     .pdf-viewer canvas {
         height: auto;
+    }
+
+    #pdf-container {
+        padding: 10px; /* ลด Padding */
+        gap: 8px; /* ลดช่องว่างระหว่างปุ่ม */
+    }
+
+    #pdf-canvas {
+        max-width: 90%; /* ลดขนาด canvas ให้เหมาะกับมือถือ */
+    }
+
+    button {
+        font-size: 0.8rem; /* ลดขนาดฟอนต์ของปุ่ม */
+        padding: 8px 10px; /* ลด Padding ของปุ่ม */
     }
 }
 
@@ -348,5 +400,19 @@ iframe {
 
     .pdf-viewer canvas {
         height: auto;
+    }
+
+    #pdf-container {
+        padding: 5px; /* ลด Padding */
+        gap: 5px; /* ลดช่องว่างระหว่างปุ่ม */
+    }
+
+    #pdf-canvas {
+        max-width: 100%; /* ใช้ความกว้างเต็มหน้าจอ */
+    }
+
+    button {
+        font-size: 0.7rem; /* ลดขนาดฟอนต์ของปุ่ม */
+        padding: 6px 8px; /* ลด Padding ของปุ่ม */
     }
 }
